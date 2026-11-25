@@ -1,0 +1,493 @@
+/* ==========================================================================
+   PORTFOLIO RESPONSIVE STYLESHEET (DAY 2 THROUGH DAY 7)
+   ==========================================================================
+   Breakpoints:
+   - Mobile Viewports: max-width: 767px (Slide-in Drawer Navigation & Animated Hamburger)
+   - Small Tablets / Phablets: min-width: 640px
+   - Tablets & Laptops: min-width: 768px (Horizontal Navbar)
+   - Large Desktops: min-width: 1024px & 1280px
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. MOBILE DEVICES (below 768px) - SLIDE-IN SIDE MENU & HAMBURGER
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  /* Hamburger button animation */
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2.75rem;
+    height: 2.75rem;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1100;
+    position: relative;
+    padding: 0.6rem 0.35rem;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    border-radius: var(--radius-full);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.25s ease,
+                background-color 0.25s ease;
+    transform-origin: center;
+  }
+
+  /* Hamburger to X Transformation */
+  .nav-toggle.is-active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+    background-color: var(--neon-accent);
+  }
+
+  .nav-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  .nav-toggle.is-active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+    background-color: var(--neon-accent);
+  }
+
+  /* Slide-in Side Menu Drawer */
+  .nav-menu {
+    position: fixed;
+    top: var(--navbar-height);
+    right: 0;
+    left: auto;
+    width: min(320px, 82vw);
+    height: calc(100vh - var(--navbar-height));
+    background-color: var(--bg-surface);
+    border-left: 1px solid var(--border-accent);
+    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.75);
+    padding: 1.5rem 1.75rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+    transform: translateX(105%);
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0s linear 0.38s;
+    z-index: 999;
+    overflow-y: auto;
+    border-top: none;
+  }
+
+  .nav-menu.is-active {
+    transform: translateX(0);
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    font-size: var(--fs-md);
+    padding: 0.6rem 0.8rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background-color: rgba(var(--neon-accent-rgb), 0.08);
+    color: var(--neon-accent);
+  }
+
+  .nav-cta {
+    width: 100%;
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+
+  .nav-cta .btn {
+    width: 100%;
+  }
+
+  /* Hero Section adjustments on mobile */
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .blob-1 {
+    width: 260px;
+    height: 260px;
+  }
+
+  .blob-2 {
+    width: 280px;
+    height: 280px;
+  }
+
+  .blob-3 {
+    width: 200px;
+    height: 200px;
+  }
+
+  /* About and Skills layouts for narrow screens */
+  .about-grid {
+    gap: 1.5rem;
+  }
+
+  .about-image-card,
+  .skill-category-card {
+    padding: 1.25rem;
+  }
+
+  .about-facts,
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Keep project controls and overlays comfortable on mobile */
+  .projects-filter {
+    gap: 0.4rem;
+    margin-bottom: 2rem;
+  }
+
+  .filter-btn {
+    padding: 0.45rem 0.8rem;
+  }
+
+  .project-preview {
+    height: 300px;
+  }
+
+  /* Day 5 timeline, testimonial slider, and contact form */
+  .timeline-item {
+    padding: 1.25rem;
+  }
+
+  .testimonial-card {
+    min-height: 250px;
+    padding: 1.35rem;
+  }
+
+  .testimonial-controls {
+    gap: 0.5rem;
+  }
+
+  .testimonial-dots {
+    gap: 0;
+  }
+
+  .contact-wrapper {
+    gap: 1.5rem;
+  }
+
+  .contact-form-card {
+    padding: 1.25rem;
+  }
+
+  .contact-submit {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   1. SMALL TABLETS & LARGE PHABLETS (640px and up)
+   -------------------------------------------------------------------------- */
+@media (min-width: 640px) {
+  :root {
+    --container-padding: 1.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: row;
+    width: auto;
+  }
+
+  .hero-actions .btn {
+    width: auto;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. TABLETS & LAPTOPS (768px and up)
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  :root {
+    --fs-3xl: 2.75rem;
+    --fs-4xl: 3.5rem;
+    --section-padding-mobile: var(--section-padding);
+  }
+
+  /* Header & Navigation */
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-overlay {
+    display: none;
+  }
+
+  .nav-menu {
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    flex-direction: row;
+    padding: 0;
+    gap: 0.5rem;
+    transform: none;
+    overflow-y: visible;
+    border-top: none;
+    border-left: none;
+    box-shadow: none;
+    z-index: auto;
+  }
+
+  .nav-menu li {
+    width: auto;
+  }
+
+  .nav-link {
+    font-size: var(--fs-sm);
+    padding: 0.4rem 0.75rem;
+  }
+
+  .nav-cta {
+    margin-top: 0;
+    width: auto;
+    margin-left: 0.5rem;
+  }
+
+  .nav-cta .btn {
+    width: auto;
+  }
+
+  /* Hero Section */
+  .hero-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero-image-wrapper {
+    margin-top: 0;
+    justify-content: flex-end;
+  }
+
+  .hero-avatar-box {
+    width: 320px;
+    height: 320px;
+  }
+
+  /* About Section */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  /* Alternate timeline cards around the centered progress line on desktop. */
+  .timeline {
+    padding-left: 0;
+    gap: 1.75rem;
+  }
+
+  .timeline::before,
+  .timeline::after {
+    left: 50%;
+  }
+
+  .timeline-item {
+    width: calc(50% - 2rem);
+  }
+
+  .timeline-item:nth-child(odd) {
+    align-self: flex-start;
+    text-align: right;
+  }
+
+  .timeline-item:nth-child(even) {
+    align-self: flex-end;
+    text-align: left;
+  }
+
+  .timeline-item:nth-child(odd)::before {
+    right: -2.5rem;
+    left: auto;
+  }
+
+  .timeline-item:nth-child(even)::before {
+    right: auto;
+    left: -2.5rem;
+  }
+
+  .testimonial-card {
+    min-height: 300px;
+  }
+
+  /* Contact Section */
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 2.5rem;
+    align-items: flex-start;
+  }
+
+  /* Footer Layout */
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. DESKTOPS (1024px and up)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: 2rem;
+    --fs-2xl: 2.25rem;
+    --fs-3xl: 3.25rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-avatar-box {
+    width: 360px;
+    height: 360px;
+  }
+
+  .footer-top {
+    grid-template-columns: 2.5fr 1fr 1fr 1.5fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. LARGE SCREENS (1280px and up)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1280px) {
+  .hero-avatar-box {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+/* Hover-only overlays become visible by default on touch devices. */
+@media (hover: none) {
+  .projects .projects-grid .project-card .project-overlay {
+    transform: translateY(0);
+    background: linear-gradient(180deg, rgba(10, 13, 20, 0.12) 5%, rgba(10, 13, 20, 0.96) 100%);
+  }
+}
+
+/* Keep the existing drawer navigation on compact tablets where the full menu
+   cannot fit without clipping. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .nav-toggle {
+    display: flex;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0.6rem 0.35rem;
+  }
+
+  .nav-overlay {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: var(--navbar-height);
+    right: 0;
+    left: auto;
+    width: min(320px, 82vw);
+    height: calc(100vh - var(--navbar-height));
+    background-color: var(--bg-surface);
+    border-left: 1px solid var(--border-accent);
+    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.75);
+    padding: 1.5rem 1.75rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+    transform: translateX(105%);
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0s linear 0.38s;
+    z-index: 999;
+    overflow-y: auto;
+    border-top: none;
+  }
+
+  .nav-menu.is-active {
+    transform: translateX(0);
+  }
+
+  .nav-menu li,
+  .nav-cta {
+    width: 100%;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    font-size: var(--fs-md);
+    padding: 0.6rem 0.8rem;
+  }
+
+  .nav-cta {
+    margin: 1rem 0 0;
+    max-width: 100%;
+  }
+
+  .nav-cta .btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .nav-menu {
+    gap: 0.25rem;
+    visibility: visible;
+  }
+
+  .nav-link {
+    padding-inline: 0.5rem;
+  }
+}

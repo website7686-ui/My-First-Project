@@ -1,0 +1,558 @@
+/* ==========================================================================
+   PORTFOLIO ANIMATIONS STYLESHEET (DAY 2 THROUGH DAY 7)
+   ==========================================================================
+   Contains:
+   1. Preloader Keyframes (Spinning ring & pulsating name)
+   2. Typing Effect & Blinking Cursor
+   3. Floating Gradient Background Blobs Keyframes
+   4. Hero Staggered Fade-in / Slide-up Animations
+   5. Social Media Icons Hover Lift & Micro-interactions
+   6. About Ring, Scroll Reveal, and Skill Bar Animations
+   7. Service Card and Project Filter Animations
+   8. Timeline, Testimonial, and Contact Form Animations
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. PRELOADER ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes spinRing {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseText {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. TYPING CURSOR BLINK
+   -------------------------------------------------------------------------- */
+@keyframes blinkCursor {
+  0%, 45% {
+    opacity: 1;
+  }
+  50%, 95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.typing-cursor {
+  display: inline-block;
+  margin-left: 3px;
+  color: var(--neon-accent);
+  font-weight: var(--fw-light);
+  animation: blinkCursor 0.85s infinite;
+}
+
+/* --------------------------------------------------------------------------
+   3. FLOATING GRADIENT BACKGROUND BLOBS KEYFRAMES
+   -------------------------------------------------------------------------- */
+@keyframes floatBlob1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(45px, -35px) scale(1.12);
+  }
+  66% {
+    transform: translate(-30px, 40px) scale(0.92);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes floatBlob2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-50px, 35px) scale(1.08);
+  }
+  66% {
+    transform: translate(40px, -45px) scale(0.95);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes floatBlob3 {
+  0% {
+    transform: translate(0, 0) scale(0.95);
+  }
+  50% {
+    transform: translate(25px, 35px) scale(1.15);
+  }
+  100% {
+    transform: translate(0, 0) scale(0.95);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. HERO STAGGERED FADE-IN & SLIDE-UP
+   -------------------------------------------------------------------------- */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate-fade-up {
+  opacity: 0;
+  animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger Delays */
+.hero-delay-badge {
+  animation-delay: 0.1s;
+}
+
+.hero-delay-heading {
+  animation-delay: 0.25s;
+}
+
+.hero-delay-subtitle {
+  animation-delay: 0.45s;
+}
+
+.hero-delay-actions {
+  animation-delay: 0.65s;
+}
+
+.hero-delay-socials {
+  animation-delay: 0.85s;
+}
+
+.hero-delay-visual {
+  animation-delay: 0.5s;
+}
+
+/* --------------------------------------------------------------------------
+   5. SOCIAL ICONS HOVER LIFT EFFECT
+   -------------------------------------------------------------------------- */
+.social-link {
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+              color 0.2s ease,
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.28s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-6px) scale(1.1);
+  color: var(--neon-accent);
+  border-color: var(--border-accent);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45), var(--neon-accent-glow);
+}
+
+/* --------------------------------------------------------------------------
+   6. STATUS DOT PULSATION
+   -------------------------------------------------------------------------- */
+@keyframes statusDotPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+.hero-badge .status-dot {
+  position: relative;
+}
+
+.hero-badge .status-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--neon-accent);
+  animation: statusDotPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* --------------------------------------------------------------------------
+   7. ABOUT PHOTO GRADIENT RING
+   -------------------------------------------------------------------------- */
+@keyframes aboutRingRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes aboutRingGlow {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 0.95;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. SCROLL REVEAL ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes revealRight {
+  from {
+    opacity: 0;
+    transform: translateX(36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  animation: revealUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.reveal-left.is-visible {
+  animation-name: revealLeft;
+}
+
+.reveal.reveal-right.is-visible {
+  animation-name: revealRight;
+}
+
+/* --------------------------------------------------------------------------
+   9. SKILL PROGRESS BAR ANIMATION
+   -------------------------------------------------------------------------- */
+@keyframes skillBarFill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-photo-frame::before {
+    animation: none;
+  }
+
+  .reveal.is-visible {
+    animation-duration: 0.01ms;
+  }
+
+  .skill-progress-bar.is-filled {
+    animation-duration: 0.01ms;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. SERVICE CARD HOVER AND OPTIONAL POINTER TILT
+   -------------------------------------------------------------------------- */
+@keyframes serviceBorderGlow {
+  from {
+    opacity: 0.65;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.service-card {
+  position: relative;
+  isolation: isolate;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.32s ease,
+              border-color 0.32s ease;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: -1px;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: linear-gradient(var(--bg-surface), var(--bg-surface)) padding-box,
+              linear-gradient(135deg, var(--neon-accent), #8b5cf6, #3b82f6) border-box;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.32s ease;
+}
+
+.service-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.service-card:hover,
+.service-card:focus-within {
+  transform: perspective(900px)
+             rotateX(var(--service-tilt-x, 0deg))
+             rotateY(var(--service-tilt-y, 0deg))
+             translateY(-8px);
+  border-color: transparent;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45), 0 0 22px rgba(var(--neon-accent-rgb), 0.16);
+}
+
+.service-card:hover::before,
+.service-card:focus-within::before {
+  animation: serviceBorderGlow 1.8s ease-in-out infinite alternate;
+}
+
+.service-icon {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease;
+}
+
+.service-card:hover .service-icon,
+.service-card:focus-within .service-icon {
+  transform: scale(1.12) rotate(7deg);
+  box-shadow: var(--neon-accent-glow-sm);
+}
+
+/* --------------------------------------------------------------------------
+   11. PROJECT CARD HOVER AND FILTER TRANSITIONS
+   -------------------------------------------------------------------------- */
+.project-card {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-card[hidden] {
+  display: none;
+}
+
+.project-card.is-filtered-out {
+  opacity: 0;
+  transform: scale(0.94);
+  pointer-events: none;
+}
+
+.project-image {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-overlay {
+  transform: translateY(101%);
+  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .project-image,
+.project-card:focus-within .project-image {
+  transform: scale(1.08);
+}
+
+.project-card:hover .project-overlay,
+.project-card:focus-within .project-overlay {
+  transform: translateY(0);
+}
+
+.project-link {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .service-icon,
+  .project-card,
+  .project-image,
+  .project-overlay,
+  .project-link {
+    transition-duration: 0.01ms;
+  }
+
+  .service-card:hover::before,
+  .service-card:focus-within::before {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. EXPERIENCE TIMELINE PULSE AND SCROLL FILL
+   -------------------------------------------------------------------------- */
+@keyframes timelineDotPulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.72;
+    transform: scale(1.18);
+  }
+}
+
+.timeline::after {
+  transition: transform 0.12s linear;
+}
+
+.timeline-item::before {
+  animation: timelineDotPulse 2.2s ease-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   13. TESTIMONIAL SLIDER TRANSITIONS
+   -------------------------------------------------------------------------- */
+.testimonial-track {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.testimonial-arrow,
+.testimonial-dot {
+  transition: background-color 0.22s ease,
+              color 0.22s ease,
+              border-color 0.22s ease,
+              box-shadow 0.22s ease,
+              transform 0.22s ease;
+}
+
+.testimonial-arrow:hover,
+.testimonial-arrow:focus-visible {
+  color: var(--text-inverse);
+  background-color: var(--neon-accent);
+  transform: translateY(-2px);
+}
+
+.testimonial-dot:hover,
+.testimonial-dot:focus-visible {
+  transform: scale(1.2);
+}
+
+.testimonial-slider:focus-visible {
+  outline: 2px solid var(--neon-accent);
+  outline-offset: 0.35rem;
+  border-radius: var(--radius-md);
+}
+
+/* --------------------------------------------------------------------------
+   14. CONTACT VALIDATION AND SUBMIT STATES
+   -------------------------------------------------------------------------- */
+@keyframes submitSpinnerSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes formStatusEnter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline-item {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.timeline-item:hover {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+}
+
+.contact-card,
+.form-control,
+.contact-submit {
+  transition: border-color 0.22s ease,
+              box-shadow 0.22s ease,
+              background-color 0.22s ease,
+              transform 0.22s ease;
+}
+
+.submit-spinner {
+  animation: submitSpinnerSpin 0.75s linear infinite;
+}
+
+.contact-submit:disabled {
+  cursor: wait;
+}
+
+.form-status:not([hidden]) {
+  animation: formStatusEnter 0.28s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .preloader-ring,
+  .preloader-title,
+  .typing-cursor,
+  .hero-badge .status-dot,
+  .hero-badge .status-dot::after,
+  .blob,
+  .about-photo-frame::before,
+  .service-card::before,
+  .timeline-item::before,
+  .submit-spinner {
+    animation: none !important;
+  }
+
+  .hero-animate-fade-up,
+  .reveal {
+    opacity: 1;
+    animation: none !important;
+    transform: none;
+  }
+
+  .skill-progress-bar.is-filled {
+    animation: none !important;
+    transform: scaleX(1);
+  }
+}
