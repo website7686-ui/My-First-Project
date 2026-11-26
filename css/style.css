@@ -11,7 +11,7 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Neon Accent Palette */
-  --neon-accent: #b3ff00;
+  --neon-accent: #00bcd4;
   --neon-accent-rgb: 0, 240, 255;
   --neon-accent-dark: #00bcd4;
   --neon-accent-glow: 0 0 16px rgba(var(--neon-accent-rgb), 0.45);
