@@ -1682,3 +1682,50 @@ textarea.form-control {
 .back-to-top:hover {
   text-decoration: underline;
 }
+
+/* =========================================
+   BLACK & GOLD LUXURY THEME
+   ========================================= */
+
+:root {
+  --neon-accent: #D4AF37;
+  --neon-accent-rgb: 212, 175, 55;
+  --neon-accent-dark: #B8860B;
+
+  --neon-accent-glow: 0 0 16px rgba(212, 175, 55, 0.35);
+  --neon-accent-glow-sm: 0 0 8px rgba(212, 175, 55, 0.25);
+  --neon-accent-glow-lg: 0 0 28px rgba(212, 175, 55, 0.5);
+
+  --bg-primary: #080808;
+  --bg-secondary: #101010;
+  --bg-surface: #181818;
+  --bg-surface-hover: #24211A;
+  --bg-surface-glass: rgba(8, 8, 8, 0.85);
+
+  --text-primary: #F5F1E6;
+  --text-secondary: #C4BCA8;
+  --text-muted: #9A927F;
+  --text-inverse: #080808;
+
+  --border-subtle: rgba(212, 175, 55, 0.12);
+  --border-medium: rgba(212, 175, 55, 0.25);
+  --border-accent: rgba(212, 175, 55, 0.4);
+  --border-accent-strong: rgba(212, 175, 55, 0.8);
+}
+
+/* Gold text selection */
+::selection {
+  background: #D4AF37;
+  color: #080808;
+}
+
+/* Gold focus outline */
+:focus-visible {
+  outline: 2px solid #D4AF37;
+  outline-offset: 3px;
+}
+
+/* Smooth luxury appearance */
+html {
+  scroll-behavior: smooth;
+}
